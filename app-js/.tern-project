@@ -3,6 +3,12 @@
   "plugins": {
     "outline": {
       
+    },
+    "guess-types": {
+      
+    },
+    "browser-extension": {
+      
     }
   },
   "libs": [

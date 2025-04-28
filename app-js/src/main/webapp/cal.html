@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="number" id="a">
+	<select id ="ope">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+	</select>
+	<input type="number" id="b">
+	<button onclick="cal()">=</button>
+	<input type="number" id="result">
+	
+	<script>
+		function cal(){
+			const a = Number(document.getElementById('a').value);
+			const b = Number(document.getElementById('b').value);
+			const ope = document.getElementById('ope').value;
+			let result = 0;
+			switch(ope){
+			case '+':
+				result = a+b;
+				break;
+			case '-':
+				result = a-b;
+				break;
+			case '*':
+				result = a*b;
+				break;
+			case '/':
+				result = a/b;
+				break;
+			}
+			document.getElementById('result').value = result;
+		}
+	</script>
+</body>
+</html>
