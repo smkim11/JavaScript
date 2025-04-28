@@ -4,10 +4,125 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-	alert("hello");
+	// 변수 
+	var a =1;
+	let b = 2;
+	const c = 3; // 상수
+	
+	// ,로 구분해서 여러개 출력 가능
+	console.log(c*b);
+	console.log('goodee',c*b*a);
+	
+	// 문자열 만들기 '' 와 "" 모두 ""로 취급
+	let str = 'goodee academy';
+	console.log(str);
+	
+	str = "Goodee Academy";
+	console.log(str);
+	
+	str = "test\"test";
+	console.log(str);
+	
+	let x = 5;
+	let y = 7;
+	console.log(x + '*' + y + '=' + (x*y));
+	
+	// 백틱(`)을 사용하면 멀티라인 문자열 표현 가능 
+	str = `goodee
+		   academy`;
+	console.log(str);
+	
+	// 백틱은 문자열 안에 표현식 사용이 가능 - JSP에서 사용하면 EL과 충돌하기 때문에 JSP에서는 사용하지 않는다
+	console.log(`${x}*${y}=${x*y}`);
+	
+	let name = "구디";
+	console.log('당신의 이름은 '+ name +'입니다.');
+	console.log(`당신의 이름은 ${name}입니다.`);
+	
+	// 자바스크립트의 문자열은 인덱스가 존재한다
+	console.log(name[0]); // 구
+	console.log(name[1]); // 디
+	console.log('문자열 길이: ', name.length);
+	
+	// 자바스크립트 나누기 연산자는 실수 연산
+	console.log(4/2); // 2
+	console.log(5/2); // 2.5
+	console.log(5.0/2); // 2.5
+	console.log(5%2); // 1
+	
+	// boolean자료형
+	let t = true;
+	let f = false;
+	console.log(t);
+	console.log(f);
+	
+	t = 10>100;
+	console.log(t); // false
+	
+	console.log('===연산자: ','777' === 777); // 정확한 연산
+	console.log('==연산자: ', '777' == 777); // 느슨한 연산: ex) 자동 형변환 후 연산
+	
+	console.log('!==연산자: ','777' !== 777); // 정확한 연산
+	console.log('!=연산자: ', '777' != 777); // 느슨한 연산
+	
+	// 자료형 검사
+	let q = 10;
+	console.log(typeof(q)); // number
+	q = 'Hello';
+	console.log(typeof(q)); // string
+	
+	let w = 10;
+	let e = 0;
+	if(typeof(w) === 'number'){
+		e = w * 2;
+	}
+	
+	w = 'hello';
+	if(typeof(w) === 'number'){
+		e = w * 10;
+	}
+	
+	console.log('e:',e);
+	
+	console.log(typeof('7')); // string
+	console.log(typeof(7)); // number
+	console.log(typeof(false)); // boolean
+	let name2; 
+	console.log(typeof(name2)); // undefined
+	
+	function add(x, y){
+		return x+y;
+	}
+	
+	console.log(typeof(add)); // function
+	
+	let obj = new Object();
+	console.log(typeof(obj)); // object
+	console.log({});
+	
+	let arr = [];
+	console.log(typeof(arr)); // object
+	
 </script>
 </head>
 <body>
+	<input type="text" name="x" id="x" value="">
+	<div id="y"></div>
+<script>
+
+	/*
+	출력 방법
+	1) 콘솔에 출력 (디버깅 & 로그) : console.log
+	2) 경고창에 출력 : alert()
+	3) html에 출력 : document.write()
+	4) ★★특정 태그안 또는 input value값으로 출력★★: document.getElementById()
+	*/
 	
+	console.log('test');
+	alert('test');
+	document.write('<p>test</p>');
+	document.getElementById('x').value='test';
+	document.getElementById('y').innerHTML = 'test';
+</script>
 </body>
 </html>
