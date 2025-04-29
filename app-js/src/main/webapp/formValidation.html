@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>로그인</h1>
+	<form method="post" action="/loginAcion" id="loginForm">
+		<div>
+			ID:<input type="text" name="id" id="id">
+		</div>
+		<div>
+			PW:<input type="password" name="pw" id="pw">
+		</div>
+		<button type="button" onclick="loginCheck()">로그인</button>
+	</form>
+	<script>
+		function loginCheck(){ // 입력값과 반환값 X
+			// alert('버튼 test');
+			if(document.getElementById('id').value === ''|| document.getElementById('pw').value === ''){
+				alert('id와 pw를 입력하세요');
+				return;
+			}
+			document.getElementById('loginForm').submit(); // <button type="submit"> 과 동일한 기능
+		}
+	</script>
+</body>
+</html>
