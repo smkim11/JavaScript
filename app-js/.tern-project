@@ -1,5 +1,5 @@
 {
-  "ecmaVersion": 5,
+  "ecmaVersion": 6,
   "plugins": {
     "outline": {
       
@@ -7,9 +7,8 @@
     "guess-types": {
       
     },
-    "browser-extension": {
-      
-    }
+    "node": {},
+    "modules": {}
   },
   "libs": [
     "browser"
