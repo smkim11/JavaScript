@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	const date = new Date(); // 웹브라우저(클라이언트)의 시간 
+	const hour = date.getHours();
+	
+	// javascript는 switch에 bool값이 가능하기 때문에 if문처럼(조건분기) 사용 가능
+	switch(true) {
+	case hour<11:
+		alert('아침');
+		break;
+	case hour<15:
+		alert('점심');
+		break;
+	default:
+		alert('저녁');
+		break;
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

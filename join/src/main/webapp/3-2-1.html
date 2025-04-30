@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// switch 조건문 사용하기
+	
+	const input = Number(prompt('숫자를 입력하세요.', '0'));
+	
+	console.log(4/'안녕하세요'); // NaN 반환 - 예외가 발생하지 않는다.
+	console.log(4/0); // infinity 반환 - 예외가 발생하지 않는다.
+	
+	switch(input % 2){
+	case 0:
+		alert('짝수 입니다.');
+		break;
+	case 1:
+		alert('홀수 입니다.');
+		break;
+	default :
+		alert('숫자가 아닙니다.');
+		break;
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>
