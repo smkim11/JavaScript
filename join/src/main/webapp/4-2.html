@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+<script>
+	// 반복문
+	for(let i=1;i<10;i++){
+		console.log(i);
+	}
+	
+	let arr = ['루피', '조로', '상디', '나미'];
+	for(let i=0; i<arr.length; i++){
+		console.log(arr[i]);
+	}
+	
+	for(const i in arr){ // for(Integer i : arr) arr의 인덱스를 가져온다
+		console.log(arr[i]);
+	}
+	
+	for(const name of arr){ // arr의 값을 바로 가져온다
+		console.log(name);
+	}
+	
+	arr.forEach(function(name,index) {console.log(name,index)});
+	
+	for(let i=0;i<10;i++){ // 반복작업을 멈추고 반복문의 처음으로 돌아가 반복진행
+		if(i%2==0){
+			continue;
+		}
+		console.log(i);
+	}
+	
+</script>
+</body>
+</html>
