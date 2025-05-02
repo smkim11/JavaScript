@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	// 콜백 함수
+
+	let carMove = function(){
+		console.log('차를타고 간다');
+	}
+	
+	let cycleMove = function(){
+		console.log('자전거를타고 간다');
+	}
+
+	
+	let move = function (f){ // 자바스크립트는 변수에 함수가 저장된다, 매개변수자리에 함수 -> 콜백 함수
+		f();
+	}
+	
+	let move2 = function (str){
+		if(str == '차'){
+			console.log('차를타고 간다');
+		}else if(str=='자전거'){
+			console.log('자전거를타고 간다');
+		}
+	}
+	
+	move(carMove);
+	move(cycleMove);
+	move2('차');
+	move2('자전거');
+	
+	move(function(){console.log('밥을 먹는다')}); // 익명 함수
+</script>
+</body>
+</html>
