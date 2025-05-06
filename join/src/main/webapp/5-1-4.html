@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	// 함수
+	// 윤년계산
+	let isLeapYear = function(year){
+		return (year%4==0) && (year%100!=0) || (year%400==0);
+	}; // 입력값이 숫자 하나이고, 매개값은 bool
+	
+	console.log('2020년',isLeapYear(2020));
+	console.log('2010년',isLeapYear(2010));
+	console.log('년',isLeapYear()); // year가 입력되지 않으면 undefined
+	
+	// 범위내 숫자 총합
+	let sumAll = function(a,b){
+		let output = 0;
+		for(let i=a; i<=b;i++){
+			output+=i;
+		}
+		return output;
+	}
+	
+	console.log('7~50까지의 합',sumAll(7,50));
+	console.log('1~10까지의 합',sumAll(1,10));
+	
+	// 최솟값, 최댓값
+	let min = function(array){
+		let output=array[0];
+		for(let item of array){
+			if(output>item){
+				output=item;
+			}
+		}
+		return output; // 최솟값
+	}
+	
+	console.log('최솟값',min([3,5,1,6,6,2]));
+	console.log('최솟값',min(['b','e','a']));
+	
+	// 가변 인수
+	let sample = function(...args){
+		for(let a of args){
+			console.log(a%2==0);
+		}
+	}
+	
+	sample(3,4,6,7);
+	
+	let a = [2,3,4,5];
+	sample(a[0],a[1],a[2],a[3]);
+	
+	sample(...a); // 전개 연산자
+	sample(...[2,3,4,5]);
+	
+	// 기본값이 있는 매개변수
+	let earning = function(name,wage=8590,hours=40){
+		console.log(name);
+		console.log(wage);
+		console.log(hours);
+	}
+	
+	earning('루피',10000,24);
+	earning();
+	earning('나미');
+	earning('상디',5000);
+	
+	
+</script>
+</body>
+</html>
