@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<td colspan="4">
+				<input type="text" id="result">
+			</td>
+		</tr>
+		<tr>
+			<td><button type="button" id="seven">7</button></td>
+			<td><button type="button" id="eight">8</button></td>
+			<td><button type="button" id="nine">9</button></td>
+			<td><button type="button" id="div">/</button></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="four">4</button></td>
+			<td><button type="button" id="five">5</button></td>
+			<td><button type="button" id="six">6</button></td>
+			<td><button type="button" id="mul">*</button></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="one">1</button></td>
+			<td><button type="button" id="two">2</button></td>
+			<td><button type="button" id="three">3</button></td>
+			<td><button type="button" id="minus">-</button></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="equal">=</button></td>
+			<td><button type="button" id="zero">0</button></td>
+			<td><button type="button" id="cancle">c</button></td>
+			<td><button type="button" id="plus">+</button></td>
+		</tr>
+	</table>
+	<script>
+		let result = '';
+		let test = function(){
+			console.log('test');
+			document.querySelector('#result').value+=document.querySelector('#zero').value;
+		}
+		document.querySelector('#zero').addEventListener('click', function(){
+			result+=0;
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#one').addEventListener('click', function(){
+			result+=1;
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#two').addEventListener('click', function(){
+			result+=2;
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#three').addEventListener('click', function(){
+			result+=3;
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#four').addEventListener('click', function(){
+			result+=4;
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#five').addEventListener('click', function(){
+			result+=5;
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#six').addEventListener('click', function(){
+			result+=6;
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#seven').addEventListener('click', function(){
+			result+=7;
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#eight').addEventListener('click', function(){
+			result+=8;
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#nine').addEventListener('click', function(){
+			result+=9;
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#plus').addEventListener('click', function(){
+			if(result.substring(result.length-1)=='+'
+					||result.substring(result.length-1)=='-'
+					||result.substring(result.length-1)=='*'
+					||result.substring(result.length-1)=='/'
+					||result.substring(result.length-1)=='='){
+				alert('연속으로 연산자 클릭은 안됩니다.');
+				return;
+			}
+			result+='+';
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#minus').addEventListener('click', function(){
+			if(result.substring(result.length-1)=='+'
+				||result.substring(result.length-1)=='-'
+				||result.substring(result.length-1)=='*'
+				||result.substring(result.length-1)=='/'
+				||result.substring(result.length-1)=='='){
+				alert('연속으로 연산자 클릭은 안됩니다.');
+				return;
+			}
+			result+='-';
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#mul').addEventListener('click', function(){
+			if(result.substring(result.length-1)=='+'
+				||result.substring(result.length-1)=='-'
+				||result.substring(result.length-1)=='*'
+				||result.substring(result.length-1)=='/'
+				||result.substring(result.length-1)=='='){
+				alert('연속으로 연산자 클릭은 안됩니다.');
+				return;
+			}
+			result+='*';
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#div').addEventListener('click', function(){
+			if(result.substring(result.length-1)=='+'
+				||result.substring(result.length-1)=='-'
+				||result.substring(result.length-1)=='*'
+				||result.substring(result.length-1)=='/'
+				||result.substring(result.length-1)=='='){
+				alert('연속으로 연산자 클릭은 안됩니다.');
+				return;
+			}
+			result+='/';
+			document.querySelector('#result').value=result;
+		});
+		document.querySelector('#cancle').addEventListener('click', function(){
+			if(result.length<1){
+				alert('값이 없습니다.')
+				return;
+			}
+			result=result.slice(0,result.length-1);
+			document.querySelector('#result').value=result;
+		});
+	</script>
+</body>
+</html>
