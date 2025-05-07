@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/test.js"></script>
+<script>
+	console.log(x);
+	{   // 블록을 사용하여 이름충돌을 방지
+		let y = 100;
+		console.log(y); // {}안에 y호출
+	}
+	console.log(y); // test.js에 있는 y 호출
+	
+	(function(){ // 함수를 사용하여 이름충돌을 방지
+		let y = 777;
+		console.log(y);
+	})();
+</script>
+</head>
+<body>
+
+</body>
+</html>
