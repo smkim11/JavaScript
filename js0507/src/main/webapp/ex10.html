@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/emp.json"></script>
+</head>
+<body>
+<!-- last_name을 *로 출력 ex)abc -> *** 
+	 age 23->20, 33->30, 40->40...
+	 age == 20인 사람
+-->
+	<table border="1">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>first_name</th>
+				<th>last_name</th>
+				<th>email</th>
+				<th>gender</th>
+				<th>hiredate</th>
+				<th>age</th>
+			</tr>
+		</thead>
+		<tbody id="empList">
+		</tbody>
+	</table>
+<script>
+	let emp = JSON.parse(JSON.stringify(data));
+	let html = '';
+
+	let newEmp = emp.map(function(e){
+		e.age = Math.floor(e.age/10)*10;
+		return e;
+	}).map(function(e){
+		e.last_name='*'.repeat(e.last_name.length);
+		return e;
+	}).filter(function(e){
+		return e.age/10===2;
+	}).forEach(function(e){
+		html +='<tr>';
+			html += '<td>'+e.id+'</td>';
+			html += '<td>'+e.first_name+'</td>';
+			html += '<td>'+e.last_name+'</td>';
+			html += '<td>'+e.email+'</td>';
+			html += '<td>'+e.gender+'</td>';
+			html += '<td>'+e.hiredate+'</td>';
+			html += '<td>'+e.age+'</td>';
+		html+='</tr>';
+	});
+	
+	document.querySelector('#empList').innerHTML = html;
+</script>
+</body>
+</html>
