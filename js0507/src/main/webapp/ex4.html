@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	setTimeout(()=>console.log('hello'),2000); // 2초후에 한번만 콜백함수 호출
+	
+	let x = () => alert('익명함수');
+	x(); // 함수호출연산자의 위치는 함수이름뒤에 사용
+	
+	(()=>alert('익명함수2'))(); // 이름이 없는 함수(익명함수) 뒤에 함수호출 연산자 사용 - 즉시호출함수
+	
+	/*
+	let x = 1;
+	let y = setInterval(()=>{ // 2초마다 콜백함수 호출
+		x = x+1;
+		if(x>5){
+			clearInterval(y); // 5보다 크면 중지
+		}
+		console.log('setInterval x: ', x);
+		
+	}, 2*1000);
+	*/
+</script>
+</body>
+</html>
