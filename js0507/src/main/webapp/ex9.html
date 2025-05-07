@@ -27,7 +27,8 @@
 	let html = '';
 
 	let google = emp.filter(function(e){
-		return e.email.includes('google');
+		// return e.email.includes('google');
+		return e.email.indexOf('google') !== -1;
 	}).forEach(function(e){
 		html +='<tr>';
 			html += '<td>'+e.id+'</td>';
