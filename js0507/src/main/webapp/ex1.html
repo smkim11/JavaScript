@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	function f0(){ // 선언적 함수 - 호이스팅 발생
+		alert('f0');
+	};
+	
+	let f1 = function(){ // 자바스크립트에서는 함수도 코드라는 값
+		alert('f1');
+	};
+	
+	// f0(); // 함수호출 (): 호출 연산자
+	// f1();
+	
+	// 콜백함수 : 매개변수에 함수를 전달
+	let f2 = function(p1){ // p1에 함수 대입
+		alert(p1); // 매개값으로 받은 함수(코드값)를 출력
+		p1(); // 매개값으로 전달받은 함수를 호출
+	}
+	
+	f2(f1);
+</script>
+</body>
+</html>
