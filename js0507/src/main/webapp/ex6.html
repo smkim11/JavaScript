@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	// 엄격모드
+	'use strict' // 코드 엄격하게 검사
+	let x=1;
+	alert(x);
+	
+	f1();
+	f2(); 
+	
+	function f1(){ // 선언적함수 호이스팅 발생
+		console.log('f1');
+	};
+	
+	let f2 = function(){ // 익명함수 
+		console.log('f2');
+	};
+</script>
+</body>
+</html>
