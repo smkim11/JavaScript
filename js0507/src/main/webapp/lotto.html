@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	.container{ 
+	    margin: 0 auto;
+	    display: flex;
+	    justify-content: center; 
+	    align-items: center;
+	    flex-wrap: wrap;
+	    font-size: 30px;
+	}
+	.lotto{
+	    text-align: center;
+	}
+	#num1, #num2, #num3, #num4, #num5, #num6 { 
+	    display: inline-block;
+	    width: 100px; 
+	    height: 100px;
+	    background-color: #c1bcbc38;
+	    color:black;
+	    border-radius: 50%; /* 동그라미 */
+	    line-height: 100px;
+	    text-align: center; 
+	    margin: 5px;
+	    font-size: 36px;
+	}
+	button{
+	    margin-top: 50px;
+	    font-size: 0.5em;
+	    width: 100px; height: 40px;
+	    border-radius: 10px;
+	    color: black;
+	    background-color: #f8e61b;
+	    cursor: pointer; 
+	}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+	<div class="lotto">
+		<div>State :<span id="stateValue"></span></div>
+			<span id="num1">0</span>
+			<span id="num2">0</span>
+			<span id="num3">0</span>
+			<span id="num4">0</span>
+			<span id="num5">0</span>
+			<span id="num6">0</span>
+		<div>
+			<button id="start" type="button">start</button>
+			<button id="end" type="button">end</button>
+		</div>
+	</div>
+</div>
+<script>
+
+	// 6개의 로또번호 생성
+	let arr = new Array(45);
+	for(let i=0;i<arr.length;i++){
+		arr[i] = i+1;
+	}
+	for(let i=0;i<=12345;i++){
+		let rnum = Math.floor(Math.random()*45);
+		
+		let temp = arr[0];
+		arr[0] = arr[rnum];
+		arr[rnum] = temp;
+	} // 0~5까지만 로또번호로 사용
+	// console.log(arr);
+	
+	// 진행 상태값 변수
+	let state = 'end';
+	document.querySelector('#stateValue').innerHTML = state;
+	let num1, num2, num3, num4, num5, num6;
+	
+	let startBtn = document.querySelector('#start').addEventListener('click', function(){
+		// start 진행중일때는 클릭 X -> state 값이 end인 상태에서만 클릭
+		if(state === 'start'){
+			alert('state값이 start입니다');
+			return;
+		}
+		state = 'start';
+		document.querySelector('#stateValue').innerHTML = state;
+		
+		num1 = setInterval(function(){
+			document.querySelector('#num1').innerHTML = Math.floor(Math.random()*45+1);
+		},50);
+		num2 = setInterval(function(){
+			document.querySelector('#num2').innerHTML = Math.floor(Math.random()*45+1);
+		},50);
+		num3 = setInterval(function(){
+			document.querySelector('#num3').innerHTML = Math.floor(Math.random()*45+1);
+		},50);
+		num4 = setInterval(function(){
+			document.querySelector('#num4').innerHTML = Math.floor(Math.random()*45+1);
+		},50);
+		num5 = setInterval(function(){
+			document.querySelector('#num5').innerHTML = Math.floor(Math.random()*45+1);
+		},50);
+		num6 = setInterval(function(){
+			document.querySelector('#num6').innerHTML = Math.floor(Math.random()*45+1);
+		},50);
+		
+		console.log('startBtn click');
+	});
+	
+  	let randomColor = function(){
+		const r = Math.floor(Math.random()*255);
+		const g = Math.floor(Math.random()*255);
+		const b = Math.floor(Math.random()*255);
+		
+		return `rgb(${r}, ${g}, ${b})`;
+  	}
+  	
+	let endBtn = document.querySelector('#end').addEventListener('click', function(){
+		// start 진행중일때만 클릭 O -> state 값이 start인 상태에서만 클릭
+		if(state === 'end'){
+			alert('state값이 end입니다');
+			return;
+		}
+		
+		// 1초마다 순서대로 숫자 정지
+		setTimeout(function(){
+			clearInterval(num1);
+			document.querySelector('#num1').innerHTML = arr[0];
+			document.querySelector('#num1').style.backgroundColor=randomColor();
+		},1);
+		setTimeout(function(){
+			clearInterval(num2);
+			document.querySelector('#num2').innerHTML = arr[1];
+			document.querySelector('#num2').style.backgroundColor=randomColor();
+		},1000);
+		setTimeout(function(){
+			clearInterval(num3);
+			document.querySelector('#num3').innerHTML = arr[2];
+			document.querySelector('#num3').style.backgroundColor=randomColor();
+		},2000);
+		setTimeout(function(){
+			clearInterval(num4);
+			document.querySelector('#num4').innerHTML = arr[3];
+			document.querySelector('#num4').style.backgroundColor=randomColor();
+		},3000);
+		setTimeout(function(){
+			clearInterval(num5);
+			document.querySelector('#num5').innerHTML = arr[4];
+			document.querySelector('#num5').style.backgroundColor=randomColor();
+		},4000);
+		setTimeout(function(){
+			clearInterval(num6);
+			document.querySelector('#num6').innerHTML = arr[5];
+			document.querySelector('#num6').style.backgroundColor=randomColor();
+		},5000);
+		
+		state = 'end';
+		document.querySelector('#stateValue').innerHTML = state;
+		console.log('endBtn click');
+	});
+</script>
+</body>
+</html>
