@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	const product = { 
+		name:'망고',
+		type:'당절임',
+		madein:'필리핀',
+		print : function(){ // 함수, 메소드 만들때 사용
+			alert(this.name);
+		},
+	
+		show : ()=>{ // 함수를 만들때만 사용
+			alert('show'+this.name);
+		},
+		
+		print2(){ // 메소드 문법 == print2 : function(){}
+			alert(this.name);
+		}
+	};
+	
+	// product.type = '설탕절임'; const이지만 값타입이 아니기 때문에 수정이 가능
+	
+	// alert(product['type']);
+	// alert(product.type);
+	
+	product.print();
+	product.show(); // 함수이기 때문에 show안에 this가 .앞에 product를 가리키지 않는다
+</script>
+</body>
+</html>
