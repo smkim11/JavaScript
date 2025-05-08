@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	let a = {}; // 참조타입
+	a.name = '루피';
+	console.log(a);
+	
+	let b = true; // 값타입 : 숫자, 문자, 불
+	b.name='조로';
+	console.log(b.name);
+	
+	let c = new Boolean(true); // 자바스크립트의 불 랩퍼타입 Number(), String(), Boolean() 
+	console.log(c);
+	c.name = '나미';
+	console.log(c);
+	
+	let d = '쵸파';
+	d.age = 7;
+	console.log(d.age); // undefined
+	console.log(d.length); // d.length d가 자동으로 랩퍼타입 형변환 후 .length - 오토박싱
+	d.age2 = 8;
+	console.log(d.age2);
+</script>
+</body>
+</html>
