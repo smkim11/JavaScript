@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border="1">
+		<tr>
+			<td colspan="4">
+				<input type="text" id="question" readonly>
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="4">
+				<input type="text" id="result" readonly>
+			</td>
+		</tr>
+		<tr>
+			<td><button type="button" id="seven">7</button></td>
+			<td><button type="button" id="eight">8</button></td>
+			<td><button type="button" id="nine">9</button></td>
+			<td><button type="button" id="new">새로운 문제</button></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="four">4</button></td>
+			<td><button type="button" id="five">5</button></td>
+			<td><button type="button" id="six">6</button></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="one">1</button></td>
+			<td><button type="button" id="two">2</button></td>
+			<td><button type="button" id="three">3</button></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="delete">del</button></td>
+			<td><button type="button" id="zero">0</button></td>
+			<td><button type="button" id="minus">-</button></td>
+			<td><button type="button" id="submit">제출</button></td>
+		</tr>
+</table>
+<script>
+	let question = '';
+	let result = '';
+	let symbol = ['+', '-'];
+	
+	// 문제 생성
+	document.querySelector('#new').addEventListener('click',function(){
+		for(let i=0;i<10;i++){
+			let rnum = Math.floor(Math.random()*2);
+			let temp = symbol[0];
+			symbol[0] = symbol[rnum];
+			symbol[rnum] = temp;
+		}
+		let num1 = Math.floor(Math.random()*100+1);
+		let num2 = Math.floor(Math.random()*100+1);
+		question = num1 + symbol[0] + num2;
+		document.querySelector('#question').value=question;
+	});
+	
+	// 숫자 입력
+	document.querySelector('#zero').addEventListener('click',function(){
+		result+=0;
+		document.querySelector('#result').value=result;
+	});
+	document.querySelector('#one').addEventListener('click',function(){
+		result+=1;
+		document.querySelector('#result').value=result;
+	});
+	document.querySelector('#two').addEventListener('click',function(){
+		result+=2;
+		document.querySelector('#result').value=result;
+	});
+	document.querySelector('#three').addEventListener('click',function(){
+		result+=3;
+		document.querySelector('#result').value=result;
+	});
+	document.querySelector('#four').addEventListener('click',function(){
+		result+=4;
+		document.querySelector('#result').value=result;
+	});
+	document.querySelector('#five').addEventListener('click',function(){
+		result+=5;
+		document.querySelector('#result').value=result;
+	});
+	document.querySelector('#six').addEventListener('click',function(){
+		result+=6;
+		document.querySelector('#result').value=result;
+	});
+	document.querySelector('#seven').addEventListener('click',function(){
+		result+=7;
+		document.querySelector('#result').value=result;
+	});
+	document.querySelector('#eight').addEventListener('click',function(){
+		result+=8;
+		document.querySelector('#result').value=result;
+	});
+	document.querySelector('#nine').addEventListener('click',function(){
+		result+=9;
+		document.querySelector('#result').value=result;
+	});
+	
+	// -, 삭제, 제출
+	document.querySelector('#minus').addEventListener('click',function(){
+		if(result.substring(result.length-1) == '-'){
+			alert('연산자 중복입력 불가');
+			return;
+		}
+		result+='-';
+		document.querySelector('#result').value=result;
+	});
+	
+	document.querySelector('#delete').addEventListener('click',function(){
+		result=result.slice(0,result.length-1);
+		document.querySelector('#result').value=result;
+	});
+	
+	document.querySelector('#submit').addEventListener('click',function(){
+		if(eval(question)==result){
+			alert('정답입니다.');
+			question='';
+			result='';
+			document.querySelector('#question').value=question;
+			document.querySelector('#result').value=result;
+		}else{
+			alert('오답입니다.');
+			result='';
+			document.querySelector('#result').value=result;
+		}
+			
+	})
+
+</script>
+</body>
+</html>
