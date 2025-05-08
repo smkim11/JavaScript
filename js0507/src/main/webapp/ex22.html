@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+<button type="button" id="btn">test</button>
+<script>
+	// 기본 브라우저 API대신 JQuery API를 사용하면 간결하게 구현 가능
+	$('#btn').click(function(){ // == document.querySelector('#btn').addEventListener('click',function(){})
+		alert('test');
+	});
+</script>
+</body>
+</html>
