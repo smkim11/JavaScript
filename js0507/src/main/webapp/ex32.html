@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+// querySelectorAll() -> 문서객체 여러개 추출
+	document.addEventListener('DOMContentLoaded',function(){
+		// querySelector 반환타입 : Element(Tag)
+		console.log(document.querySelector('#name').innerHTML);
+	
+		// querySelectorAll 반환타입 : NodeList(TagList)
+		console.log(document.querySelectorAll('p')[0].innerHTML);
+		console.log(document.querySelectorAll('p')[1].innerHTML);
+		console.log(document.querySelectorAll('.gd')[0].innerHTML);
+		console.log(document.querySelectorAll('.gd')[1].innerHTML);
+		
+		console.log(document.querySelector('input[type=text]').value);
+		console.log(document.querySelector('input[type=password]').value);
+	})
+</script>
+</head>
+<body>
+	<p>P태그내용1</p>
+	<p>P태그내용2</p>
+	
+	<div id="name">id=name 내용</div>
+	
+	<div class="gd">class=gd 내용1</div>
+	<h1 class="gd">class=gd 내용2</h1>
+	
+	<input type="text" value="1">
+	<input type="password" value="1234">
+</body>
+</html>
