@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	let source = [3,7,10];
+	let copy1 = source; // 얕은 복사 (수정시 원본도 수정)
+	
+	//copy1[1] = 99;
+	
+	let copy2 = new Array(source.length); // 깊은 복사 (수정시 원본 수정 X)
+	for(let i=0;i<copy2.length;i++){
+		copy2[i] = source[i];
+	}
+	
+	console.log(source);
+	console.log(copy1);
+	
+	console.log(copy2);
+	copy2[1]=99;
+	console.log(source);
+	
+	let copy3 = [...source]; // 전개 연산자(반복문 없이 깊은 복사 가능)
+	console.log(copy3);
+	copy3[1]=99;
+	console.log(source);
+</script>
+</body>
+</html>
