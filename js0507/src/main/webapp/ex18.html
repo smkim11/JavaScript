@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div><input type="text" id="a" readonly></div>
+
+<div>
+	<input type="text" id="b">
+	<button type="button" id="btnB">btnB</button>
+</div>
+
+<div>
+	<input type="text" id="c">
+	<button type="button" id="btnC">btnC</button>
+</div>
+<script>
+	// Number API
+	let a = 3.14141414;
+	document.querySelector('#a').value = a.toFixed(4);
+	
+	document.querySelector('#btnB').addEventListener('click',function(){
+		let txtB = document.querySelector('#b').value;
+		if(txtB=='' || !isNaN(txtB)){ // 공백X, 숫자X
+			alert('공백이거나 숫자입니다.');
+		}else{
+			alert(txtB);
+		}
+	})
+	
+	// String API
+	document.querySelector('#btnC').addEventListener('click',function(){
+		let arr = document.querySelector('#c').value.split(',');
+		arr.forEach(function(item){
+			console.log(item);
+		})
+	})
+</script>
+</body>
+</html>
