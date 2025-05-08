@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	// 정보은닉, 캡슐화
+	class Member{
+		#age; // private age
+		constructor(name='guest', age=0){
+			this.name = name;
+			this.#age = age;
+		}
+		
+		getAge(){ // public getter
+			return this.#age;
+		}
+		setAge(age){ // public setter
+			this.#age = age;
+		}
+	}
+	
+	let m1 = new Member(); // guest, 0
+	let m2 = new Member('로빈',26); // 로빈, 26
+	m2.setAge(25);
+	alert(m2.name + m2.getAge());
+</script>
+</body>
+</html>
