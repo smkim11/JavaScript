@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+<script>
+	let t1 = document.querySelectorAll('h1');
+	console.log(t1);
+	
+	// 글자색 랜덤 무지개 색상 중복 X
+	let color = ['#FF0000','#FFA200','#ffff00','#00ff00','#0090ff','#0000ff','#AB00FF'];
+	
+	for(let i=0;i<10000;i++){
+		let num = Math.floor(Math.random()*7);
+		let temp = color[0];
+		color[0] = color[num];
+		color[num] = temp;
+	}
+	
+	t1.forEach(function(value, index){
+		
+		let r = Math.floor(Math.random()*255);
+		let g = Math.floor(Math.random()*255);
+		let b = Math.floor(Math.random()*255);
+		
+		value.textContent = '안녕하세요';
+		value.style.color = color[index];
+		value.style.backgroundColor = `rgb(${r},${g},${b})`;
+		value.style.padding = '10px';
+		value.style.textAlign='center';
+		value.style.margin = '30px';
+	});
+	/*
+	t1.textContent = '안녕하세요';
+	t1.style.color = '#ffffff';
+	t1.style.backgroundColor = '#000000';
+	t1.style.padding = '10px';
+	t1.style.textAlign='center';
+	t1.style.margin = '10px';
+	*/
+</script>
+</body>
+</html>
