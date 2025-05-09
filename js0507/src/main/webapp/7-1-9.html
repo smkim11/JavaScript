@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="first" style='background-color:yellow;'>
+		<h1>1</h1>
+	</div>
+	<div id="second" style='background-color:green;'>
+		<h1>2</h1>
+	</div>
+	
+	<script>
+		let div = document.createElement('div');
+		div.textContent='a';
+		
+		let toFirst = function(){
+			document.querySelector('#first').appendChild(div);
+			setTimeout(toSecond, 100);
+		}
+		let toSecond = function(){
+			document.querySelector('#second').appendChild(div);
+			setTimeout(toFirst, 100);
+		}
+		toFirst();
+		
+	</script>
+</body>
+</html>
