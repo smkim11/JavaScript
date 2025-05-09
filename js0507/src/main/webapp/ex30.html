@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>제목</h1>
+	<table border="1" id="targetTable">
+		<tr>
+			<td>번호</td>
+			<td>이름</td>
+		</tr>
+	</table>
+	
+	<script>
+		let h1 = document.createElement('h1'); // <h1></h1>
+		h1.textContent='문서 객체 동적으로 생성하기'; // <h1>문서 객체 동적으로 생성하기</h1>
+		h1.setAttribute('data-custom', '사용자 정의 속성'); // <h1 data-custom="사용자 정의 속성"> 문서 객체 동적으로 생성하기</h1>
+		h1.style.color = 'white'; // <h1 style = "color:white;">
+		// h1.setAttribute('style', 'color:white;');
+		h1.style.backgroundColor='black'; // <h1 style = "color:white; backgroundColor:black;">
+		
+		document.querySelector('body').appendChild(h1);
+		
+		let tr = document.createElement('tr');
+		let td1 = document.createElement('td');
+		td1.textContent='1';
+		let td2 = document.createElement('td');
+		td2.textContent='루피';
+		tr.appendChild(td1);
+		tr.appendChild(td2); // <tr><td>1</td><td>루피</td></tr>
+		
+		document.querySelector('#targetTable').appendChild(tr);
+	</script>
+</body>
+</html>
