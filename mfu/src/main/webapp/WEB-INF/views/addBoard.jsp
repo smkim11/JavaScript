@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	body{
+	text-align:center;
+	}
+	table{
+	margin:auto;
+	width:30%
+	}
+</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -32,7 +41,6 @@
 	</form>
 	<script>
 		// 파일 여러개선택
-		
 		document.querySelector('#appendFile').addEventListener('click',()=>{
 			// input type =file 추가 : 앞에 파일이 더 선택되어 있다면
 			let flag = false;
@@ -60,6 +68,18 @@
 		document.querySelector('#addBtn').addEventListener('click',()=>{
 			//alert('addBtn Click!');
 			// 폼(값) 유효성 검사
+			if(document.querySelector('#boardTitle').value ==''){
+				alert('제목을 입력하세요');
+				return;
+			}
+			
+			// 파일이 추가되지 않은 node(input type=file)를 삭제하고 실행
+			let boardFiles = document.querySelectorAll('.boardfile');
+			boardFiles.forEach((e)=>{
+				if(e.value==''){
+					e.remove(); // node 삭제
+				}
+			});
 			document.querySelector('#addForm').submit();
 		});
 	</script>
