@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mfu.mapper.BoardfileMapper">
+	<!--추가-->
 	<insert id="insertBoardfile" parameterType="com.example.mfu.dto.Boardfile">
 		
 		insert into boardfile(board_no, filename, filetype) values(#{boardNo}, #{filename}, #{filetype});
 	</insert>
+	
+	<!--상세보기-->
+	<select id="selectBoardOne" resultType="com.example.mfu.dto.Boardfile">
+		select 
+			boardfile_no boardfileNo, board_no boardNo, filename, filetype
+		from 
+			boardfile
+		where
+			board_no = #{boardNo}
+	</select>
+	
+	<!--fileNo에 맞는 boradfile 정보-->
+	<select id="selectBoardfileOne" resultType="com.example.mfu.dto.Boardfile">
+		select 
+			boardfile_no boardfileNo, board_no boardNo, filename, filetype
+		from 
+			boardfile
+		where
+			boardfile_no = #{boardfileNo}
+	</select>
+	
+	<!--삭제-->
+	<delete id="deleteBoardfile">
+		delete from boardfile where boardfile_no= #{boardfileNo}
+	</delete>
 </mapper>
