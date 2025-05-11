@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mfu.mapper.BoardMapper">
+	<!--전체 리스트-->
+	<select id="boardList" resultType="com.example.mfu.dto.Board">
+		select board_no boardNo, board_title boardTitle from board
+	</select>
+	
+	<!--수정시 필요한 정보-->
+	<select id="boardListByNo" resultType="com.example.mfu.dto.Board">
+		select board_no boardNo, board_title boardTitle from board where board_no = ${boardNo}
+	</select>
+	
 	<!--추가-->
 	<insert id="insertBoard" parameterType="com.example.mfu.dto.Board">
 		<selectKey resultType="Integer" keyProperty="boardNo" order="AFTER"> <!--parameterType.setXXX(key)-->
@@ -8,14 +18,7 @@
 		</selectKey>
 		insert into board(board_title) values(#{boardTitle});
 	</insert>
-	<!--전체 리스트-->
-	<select id="boardList" resultType="com.example.mfu.dto.Board">
-		select board_no boardNo, board_title boardTitle from board
-	</select>
-	<!--수정시 필요한 정보-->
-	<select id="boardListByNo" resultType="com.example.mfu.dto.Board">
-		select board_no boardNo, board_title boardTitle from board where board_no = ${boardNo}
-	</select>
+	
 	<!--수정-->
 	<update id="updateBoard" parameterType="com.example.mfu.dto.Board">
 		update board set board_title='${boardTitle}' where board_no= ${boardNo}
