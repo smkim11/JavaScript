@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ajax.mapper.ContinentMapper">
+	<select id="selectContinentList" resultType="map">
+		select continent_no continentNo, continent_name continentName from continent
+	</select>
+	
+	<select id="selectCountryList" resultType="map" parameterType="Integer">
+		select country_no countryNo, country_name countryName from country where continent_no = ${continent_no}
+	</select>
+	
+	<select id="selectCityList" resultType="map" parameterType="Integer">
+		select city_no cityNo, city_name cityName from city where country_no = ${contry_no}
+	</select>
+</mapper>
