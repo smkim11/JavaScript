@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<span id="target">★</span>
+<script>
+	// 키로 별 움직이기 (keydown)
+	const star = document.querySelector('#target');
+	star.style.position = 'absolute';
+	
+	// let [x,y] = [0,0];
+	let x = 0;
+	let y = 0;
+	const block = 20;
+	const print = function(){
+		star.style.left = x*block + 'px';
+		star.style.top = y*block + 'px';
+	};
+	print();
+	
+	document.body.addEventListener('keydown', function(e){
+		// alert('key속성: '+e.key + '/ code속성: ' + e.code);
+		switch(e.key){
+		case 'ArrowLeft':
+			x-=1;
+			break;
+		case 'ArrowRight':
+			x+=1;
+			break;
+		case 'ArrowUp':
+			y-=1;
+			break;
+		case 'ArrowDown':
+			y+=1;
+			break;
+		default:
+			alert('방향키만 사용');
+		}
+		if(x<0){x=0;}
+		if(y<0){y=0;}
+		print();
+	});
+	
+</script>
+</body>
+</html>
