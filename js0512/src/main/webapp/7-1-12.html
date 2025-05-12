@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1{
+		user-select: none;
+	}
+</style>
+</head>
+<body>
+
+<h1>클릭 횟수: <span id="target">0</span></h1>
+<button id="connectBtn">이벤트 연결</button>
+<button id="disconnectBtn">이벤트 제거</button>
+<p>이벤트 연결 상태 : <span id="state"></span></p>
+<script>
+	// 이벤트 연결 제거하기
+	let counter = 0;
+	let isConnect = false;
+	
+	const h1 = document.querySelector('h1');
+	const target = document.querySelector('#target');
+	const state = document.querySelector('#state');
+	const connectBtn = document.querySelector('#connectBtn');
+	const disconnectBtn = document.querySelector('#disconnectBtn');
+	
+	const listener = function(){ // 콜백함수: 매개변수값으로 입력되는 함수, 리스너(핸들러)
+		counter++;
+		target.textContent = counter;
+	};
+	
+	connectBtn.addEventListener('click', function(){
+		if(isConnect == false){
+			h1.addEventListener('click', listener);
+			state.textContent = '연결';
+			isConnect = true;
+		}
+	});
+	
+	disconnectBtn.addEventListener('click', function(){
+		if(isConnect == true){
+			h1.removeEventListener('click', listener);
+			state.textContent = '해제';
+			isConnect = false;
+		}
+	});
+</script>
+</body>
+</html>
