@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>AJax Test...</h1>
+	<button id="btn">비동기 요청</button>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>username</th>
+				<th>email</th>
+			</tr>
+		</thead>
+		<tbody id="userList">
+			
+		</tbody>
+	</table>
+	<script>
+		document.querySelector('#btn').addEventListener('click',function(){
+			fetch('https://jsonplaceholder.typicode.com/users') // @RestController
+		      .then(response => response.json()) // 결과값 json을 객체로 변환
+		      .then(json => {
+								// console.log(json)
+								let html='';
+								json.forEach(e=>{
+									html+='<tr>';
+									html+='<td>'+e.id+'</td>';
+									html+='<td>'+e.name+'</td>';
+									html+='<td>'+e.username+'</td>';
+									html+='<td>'+e.email+'</td>';
+									html+='</tr>';
+								})
+								document.querySelector('#userList').innerHTML=html;
+		      				})
+		});
+	</script>
+</body>
+</html>
