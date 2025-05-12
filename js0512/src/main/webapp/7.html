@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="button" id="btn" value="ON">
+	
+	<script>
+		// 이벤트 발생객체 접근 방법(event.currentTarget, this)
+	
+		/* 기본적인 형식
+		document.querySelector('#btn').addEventListener('click', function(){
+			if(document.querySelector('#btn').value=='ON'){
+				document.querySelector('#btn').value='OFF';
+			}else{
+				document.querySelector('#btn').value='ON';
+			}
+		});
+		*/
+		
+		/* 이벤트리스너(핸들러) 안에서 this는 이벤트 객체를 바인딩 한다. 
+		document.querySelector('#btn').addEventListener('click', function(){
+			if(this.value=='ON'){
+				this.value='OFF';
+			}else{
+				this.value='ON';
+			}
+		});
+		*/
+		
+		/* 이벤트리스너(핸들러) 안에서 this는 이벤트 객체를 바인딩 한다. (this는 화살표함수 안에서는 사용할 수 없다)
+		document.querySelector('#btn').addEventListener('click', ()=>{
+			if(this.value=='ON'){
+				this.value='OFF';
+			}else{
+				this.value='ON';
+			}
+		});
+		*/
+		
+		// currentTarget은 모든 형태에 사용 가능
+		document.querySelector('#btn').addEventListener('click', (e)=>{
+			if(e.currentTarget.value=='ON'){
+				e.currentTarget.value='OFF';
+			}else{
+				e.currentTarget.value='ON';
+			}
+		});
+		
+		/* function함수에서도 사용가능
+		document.querySelector('#btn').addEventListener('click', function(e){
+			if(e.currentTarget.value=='ON'){
+				e.currentTarget.value='OFF';
+			}else{
+				e.currentTarget.value='ON';
+			}
+		});
+		*/
+	</script>
+</body>
+</html>
