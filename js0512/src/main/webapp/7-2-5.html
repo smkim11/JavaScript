@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="text" id="email">
+<p id = "result"></p>
+<script>
+	let isEmail = function(value){ 
+		// @를 가지고 있고, @앞에 2자이상 존재
+		// @뒤에오는 문자는 .문자 앞에 2자이상 존재
+		// value.split('@')[0] : @앞에 문자, value.split('@')[1] : @뒤에 문자
+		
+		return (value.indexOf('@')>1) && (value.split('@')[1].indexOf('.')>1);
+	};
+	
+	let email = document.querySelector('#email');
+	let result = document.querySelector('#result');
+	
+	email.addEventListener('keyup', function(){
+		if(isEmail(this.value)){
+			result.style.color = 'blue';
+			result.textContent = '사용가능한 이메일 입니다.';
+		}else{
+			result.style.color = 'red';
+			result.textContent = '이메일 형식이 아닙니다.';
+		}
+	});
+</script>
+</body>
+</html>
