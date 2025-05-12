@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<select id="food">
+		<option value="">:::선택:::</option>
+		<option>떡볶이</option>
+		<option>순대</option>
+		<option>오뎅</option>
+		<option>튀김</option>
+	</select>
+	<p>선택: 떡볶이</p>
+	
+	pw: <input type="password" id="pw1"><br>
+	확인: <input type="password" id="pw2">
+	<button id="btn" disabled="disabled">입력</button>
+	<script>
+		// 마우스 커서가 벗어날때 실행되는 이벤트 'blur'
+		document.querySelector('#pw1').addEventListener('blur', function(){
+			if(this.value.length < 4){
+				alert('PW는 4자 이상입니다');
+			}else{
+				document.querySelector('#pw2').focus();
+			}
+		});	
+		
+		document.querySelector('#pw2').addEventListener('blur', function(){
+			if(this.value != document.querySelector('#pw1').value){
+				alert('pw1과 pw2가 다릅니다');
+				document.querySelector('#btn').disabled = true;
+			}else{
+				document.querySelector('#btn').disabled = false;
+			}
+		});	
+	
+		document.querySelector('#food').addEventListener('change', function(){
+			let value = this.value;
+			if(value == ''){
+				alert('food가 선택되지 않았습니다');
+			}else{
+				alert(value);
+			}
+			document.querySelector('p').textContent= '선택: '+value;
+		})
+	</script>
+</body>
+</html>
