@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ajax.mapper.MemberMapper">
+	<select id="selectMemberId" parameterType="string" resultType="string">
+		select id from member where id = #{id}
+	</select>
+	
+	<insert id="insertMember" parameterType="com.example.ajax.dto.Member">
+		insert into member(id, pw, gender, age) values(#{id}, #{pw}, #{gender}, #{age})
+	</insert>
+</mapper>
