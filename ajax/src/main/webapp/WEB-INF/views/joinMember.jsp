@@ -117,10 +117,12 @@
 				, success: function(data){
 					if(data == true){
 						alert('사용 불가 ID');
+						$('#idck').val('');
 						$('#id').val('');
 					}else{
 						alert('사용 가능 ID');
 						$('#id').val($('#idck').val());
+						$('#idck').val('');
 					}
 				}
 			})
@@ -141,7 +143,7 @@
 				$('#pw').val() == '';
 			}
 			if($('#pw2').val()== null || $('#pw2').val()== '' || $('#pw2').val()== 'undefined'){
-				$('#pw2').val() == '';
+				$('#pw2').val('');
 			}
 			
 			// pw == pw2 검사
