@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	<button type="button" id="btn">실행</button>
+	<div>1</div>
+	<p>2</p>
+	<div>3</div>
+	<p>4</p>
+	<div>5</div>
+	
+	<span id="p1">mouseenter</span>
+	
+	<div id="hv">hover test</div>
+<script>
+	// JQuery Event 예제
+	$('#p1').mouseleave(function(){
+		console.log('leave p1');
+	})
+	
+	$('#p1').mouseenter(function(){
+		console.log('entered p1');
+	})
+	
+	$('#p1').mousedown(function(){
+		console.log('down p1');
+	})
+		
+	$('#hv').hover(function(){
+		console.log('hover enter hv');
+	}, function(){
+		console.log('hover out hv');
+	})
+	$('p').click(function(){
+		$(this).hide();
+	})
+	
+	$('#btn').click(function(){
+		$('p').hide();
+	})
+</script>
+</body>
+</html>
