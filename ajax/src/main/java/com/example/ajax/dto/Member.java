@@ -8,4 +8,5 @@ public class Member {
 	private String pw;
 	private String gender;
 	private int age;
+	private String address;
 }

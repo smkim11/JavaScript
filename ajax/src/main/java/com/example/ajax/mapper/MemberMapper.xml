@@ -6,6 +6,6 @@
 	</select>
 	
 	<insert id="insertMember" parameterType="com.example.ajax.dto.Member">
-		insert into member(id, pw, gender, age) values(#{id}, #{pw}, #{gender}, #{age})
+		insert into member(id, pw, gender, age, address) values(#{id}, #{pw}, #{gender}, #{age}, #{address})
 	</insert>
 </mapper>
