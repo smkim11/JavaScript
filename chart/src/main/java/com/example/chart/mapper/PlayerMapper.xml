@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.chart.mapper.PlayerMapper">
+	<!--나라별 평균 나이-->
+	<select id="selectAvgAgeByCountry" resultType="map">
+		SELECT country, AVG(age) age FROM player GROUP BY country
+	</select>
+	
+	<!--성별 가입자 수-->
+	<select id="selectCountByGender" resultType="map">
+		SELECT gender, COUNT(*) count FROM player GROUP BY gender
+	</select>
+	
+	<!--년도별 나라별 가입자 수-->
+	<select id="selectCountByYearAndCountry" resultType="map">
+		SELECT YEAR(joindate) year, country, COUNT(*) count 
+		FROM player GROUP BY YEAR(joindate), country ORDER BY YEAR(joindate) asc 
+	</select>
+	
+	<!--년도별 전체 누적 가입자 수-->
+	<select id="selectTotalCountByYear" resultType="map">
+		SELECT distinct YEAR(joindate) year, COUNT(*) OVER (ORDER BY YEAR(joindate)) count FROM player 
+	</select>
+</mapper>
